@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>高校入試 数学クエスト</title>
+
+  <!-- デザイン用CSSファイルを読み込む -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ホーム画面追加用 -->
+  <link rel="manifest" href="manifest.json" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- タイトル画面 -->
+    <header class="header">
+      <h1>高校入試 数学クエスト</h1>
+      <p>偏差値レベルを選んで、数学の問題にチャレンジしよう！</p>
+    </header>
+
+    <!-- 偏差値選択画面 -->
+    <section id="levelScreen" class="card">
+      <h2>偏差値を選んでください</h2>
+
+      <div class="level-buttons">
+        <button onclick="selectLevel(40)">偏差値40</button>
+        <button onclick="selectLevel(50)">偏差値50</button>
+        <button onclick="selectLevel(60)">偏差値60</button>
+        <button onclick="selectLevel(65)">偏差値65以上</button>
+      </div>
+    </section>
+
+    <!-- 問題画面 -->
+    <section id="gameScreen" class="card hidden">
+
+      <!-- スコア表示 -->
+      <div class="score-box">
+        <div>レベル：<span id="levelLabel">-</span></div>
+        <div>出題数：<span id="totalCount">0</span></div>
+        <div>正解：<span id="correctCount">0</span></div>
+        <div>不正解：<span id="wrongCount">0</span></div>
+        <div>正答率：<span id="accuracy">0%</span></div>
+      </div>
+
+      <!-- ジャンル -->
+      <p class="genre">
+        ジャンル：<span id="genreLabel">-</span>
+      </p>
+
+      <!-- 問題文 -->
+      <div class="question-box">
+        <h2>問題</h2>
+        <p id="questionText"></p>
+      </div>
+
+      <!-- 答え入力 -->
+      <div class="answer-box">
+        <input
+          type="text"
+          id="answerInput"
+          placeholder="答えを入力"
+          autocomplete="off"
+        />
+        <button id="answerButton" onclick="checkAnswer()">答える</button>
+      </div>
+
+      <!-- 結果表示 -->
+      <div id="resultBox" class="result-box hidden"></div>
+
+      <!-- 解説表示 -->
+      <div id="explanationBox" class="explanation-box hidden"></div>
+
+      <!-- 次の問題へ -->
+      <button id="nextButton" class="next-button hidden" onclick="nextQuestion()">
+        次の問題へ
+      </button>
+
+      <!-- レベル選択に戻る -->
+      <button class="back-button" onclick="backToLevelSelect()">
+        偏差値を選び直す
+      </button>
+    </section>
+
+  </div>
+
+  <!-- 問題を動かすJavaScriptファイル -->
+  <script src="game.js"></script>
+
+  <!-- オフライン対応用 -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+</body>
+</html>
