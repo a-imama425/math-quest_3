@@ -1,0 +1,252 @@
+/* 全体の基本設定 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  background: linear-gradient(180deg, #eaf4ff 0%, #f8fbff 100%);
+  color: #222;
+}
+
+/* アプリ全体 */
+.app {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ヘッダー */
+.header {
+  text-align: center;
+  padding: 20px 8px;
+}
+
+.header h1 {
+  font-size: 28px;
+  margin: 0 0 10px;
+  color: #1565c0;
+}
+
+.header p {
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* カード共通 */
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 22px;
+  text-align: center;
+}
+
+/* 非表示 */
+.hidden {
+  display: none;
+}
+
+/* 偏差値ボタン */
+.level-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.level-buttons button {
+  width: 100%;
+  min-height: 56px;
+  border: none;
+  border-radius: 14px;
+  background: #1976d2;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* スマホでタップしたとき */
+button:active {
+  transform: scale(0.98);
+}
+
+/* スコア表示 */
+.score-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background: #f1f7ff;
+  border-radius: 14px;
+  padding: 12px;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.score-box div {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ジャンル表示 */
+.genre {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1565c0;
+  margin: 10px 0 14px;
+}
+
+/* 問題カード */
+.question-box {
+  background: #fff8e1;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.question-box h2 {
+  text-align: left;
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+#questionText {
+  font-size: 21px;
+  line-height: 1.7;
+  white-space: pre-line;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* 答え入力エリア */
+.answer-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#answerInput {
+  width: 100%;
+  min-height: 56px;
+  font-size: 18px;
+  padding: 12px;
+  border: 2px solid #90caf9;
+  border-radius: 14px;
+  outline: none;
+}
+
+#answerInput:focus {
+  border-color: #1976d2;
+  background: #f5fbff;
+}
+
+#answerButton {
+  width: 100%;
+  min-height: 56px;
+  border: none;
+  border-radius: 14px;
+  background: #2e7d32;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 結果表示 */
+.result-box {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.result-box.correct {
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 2px solid #66bb6a;
+}
+
+.result-box.wrong {
+  background: #ffebee;
+  color: #b71c1c;
+  border: 2px solid #ef5350;
+}
+
+/* 解説表示 */
+.explanation-box {
+  margin-top: 14px;
+  padding: 16px;
+  background: #f7f7f7;
+  border-radius: 14px;
+  font-size: 17px;
+  line-height: 1.7;
+  white-space: pre-line;
+  border-left: 6px solid #1976d2;
+}
+
+/* 次の問題ボタン */
+.next-button {
+  width: 100%;
+  min-height: 56px;
+  margin-top: 16px;
+  border: none;
+  border-radius: 14px;
+  background: #ff9800;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 戻るボタン */
+.back-button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 14px;
+  border: none;
+  border-radius: 14px;
+  background: #eeeeee;
+  color: #333333;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* スマホ用調整 */
+@media (max-width: 480px) {
+  .app {
+    padding: 12px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  #questionText {
+    font-size: 20px;
+  }
+
+  .score-box {
+    grid-template-columns: 1fr 1fr;
+    font-size: 14px;
+  }
+}
